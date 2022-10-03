@@ -20,6 +20,10 @@ body{
   min-width: 100vw;
   overflow-x: hidden;
 }
+.Title{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 .Title h1{
   color: var(--primary);
   font-size: 1.2rem;
@@ -59,7 +63,7 @@ body{
   width: auto;
   height: auto;
   display: flex;
-  bottom: 50px;
+  margin-bottom: 5%;
 }
 
 img {
