@@ -2,7 +2,7 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import {storage} from './firebase';
-import {ref,uploadBytes, getDownloadURL,listAll,list} from 'firebase/storage';
+import {ref,uploadBytes, getDownloadURL,listAll} from 'firebase/storage';
 import{v4} from 'uuid'
 import Title from './Title';
 
