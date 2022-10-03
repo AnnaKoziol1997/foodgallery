@@ -47,9 +47,12 @@ function App() {
           }}
         />
         <button onClick={uploadFile}> Upload Image</button>
+        <div>
         {imageUrls.map((url) => {
             return <img alt="" src={url} />;
           })}
+          <Image/>
+        </div>
       </div>
       <div className='Footer'>
         <Footer/>
