@@ -6,6 +6,7 @@ import { ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
 import { v4 } from 'uuid'
 import Title from './Title';
 import Footer from './Footer';
+import Image from './Image'
 
 function App() {
   const [imageUpload, setImageUpload] = useState(null);
@@ -47,8 +48,8 @@ function App() {
         />
         <button onClick={uploadFile}> Upload Image</button>
         {imageUrls.map((url) => {
-          return <img alt="" src={url} />;
-        })}
+            return <img alt="" src={url} />;
+          })}
       </div>
       <div className='Footer'>
         <Footer/>
