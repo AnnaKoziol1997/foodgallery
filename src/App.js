@@ -1,17 +1,16 @@
 //import './App.css';
 import React from 'react';
-import {useState,useEffect} from 'react';
-import {storage} from './firebase';
-import {ref,uploadBytes, getDownloadURL,listAll} from 'firebase/storage';
-import{v4} from 'uuid'
+import { useState, useEffect } from 'react';
+import { storage } from './firebase';
+import { ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
+import { v4 } from 'uuid'
 import Title from './Title';
 
-function App() 
-{ 
+function App() {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
 
-  const imagesListRef = ref(storage, "images/");
+  
   const uploadFile = () => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
@@ -21,7 +20,9 @@ function App()
       });
     });
   };
+  
   useEffect(() => {
+    const imagesListRef = ref(storage, "images/");
     listAll(imagesListRef).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
@@ -34,21 +35,21 @@ function App()
   return (
     <div className="App">
       <div className='Title'>
-      <Title/>
+        <Title />
       </div>
       <div className='UploadAndImg'>
         <input
-        type="file"
-        onChange={(event) => {
-          setImageUpload(event.target.files[0]);
-        }}
+          type="file"
+          onChange={(event) => {
+            setImageUpload(event.target.files[0]);
+          }}
         />
         <button onClick={uploadFile}> Upload Image</button>
         {imageUrls.map((url) => {
-          return <img src={url} />;
-        })} 
+          return <img alt="" src={url} />;
+        })}
       </div>
-      
+
     </div>
   );
 }

@@ -13,6 +13,7 @@ body{
   font-family: "Noto Serif";
   min-height: 100vh;
   min-width: 100vw;
+  overflow-x: hidden;
 }
 .Title h1{
   color: var(--primary);
@@ -20,7 +21,7 @@ body{
   letter-spacing: 2px;
   font-weight: normal;
 }
-.Title h2, .title p{
+.Title h2, .Title p{
   text-align: center;
 }
 .Title h2{
@@ -32,7 +33,7 @@ body{
   margin: 0 auto;
 }
 .UploadAndImg{
-  width: 100vw;
+  width: auto;
   height: auto;
   display: flex;
   align-items: center;
