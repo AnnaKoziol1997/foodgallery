@@ -5,6 +5,7 @@ import { storage } from './firebase';
 import { ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
 import { v4 } from 'uuid'
 import Title from './Title';
+import Footer from './Footer';
 
 function App() {
   const [imageUpload, setImageUpload] = useState(null);
@@ -49,7 +50,10 @@ function App() {
           return <img alt="" src={url} />;
         })}
       </div>
-
+      <div className='Footer'>
+        <Footer/>
+      </div>
+      
     </div>
   );
 }
