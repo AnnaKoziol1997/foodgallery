@@ -20,6 +20,9 @@ body{
   min-width: 100vw;
   overflow-x: hidden;
 }
+.input button{
+  background: linear-gradient(45deg,rgb(136, 82, 39),rgb(121, 56, 3));
+}
 .Title{
   margin-top: 5%;
   margin-bottom: 5%;
