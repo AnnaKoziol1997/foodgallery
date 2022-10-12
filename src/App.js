@@ -1,9 +1,9 @@
 //import './App.css';
 import React from 'react';
-import Title from './Title';
-import Footer from './Footer';
-import Gallery from './Gallery';
-import Image from './Image'
+import Title from './components/Title'
+import Footer from './components/Footer';
+import Gallery from './components/Gallery';
+import Image from './components/Image'
 
 function App() {
   
