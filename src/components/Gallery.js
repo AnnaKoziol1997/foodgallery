@@ -33,21 +33,6 @@ const Gallery = ()=>{
     return(
         
         <div className='ImageAndText'>
-            <input className='input'
-          type="file"
-          onChange={(event) => {
-            setImageUpload(event.target.files[0]);
-          }}
-        />
-        <label>
-          Name:
-          <input className='nameinput' type="text" name='name'/>
-        </label>
-        <label>
-        Description:
-        <input className='descriptionImput' type='text' name='description'/>
-        </label>
-        <button className='button' onClick={uploadFile}> Upload Image</button>
         <div>
         {imageUrls.map((url) => {
             return <img alt="" src={url} />;
