@@ -12,6 +12,7 @@ const AddImage = () => {
     const handleCancel = () => { setOpen(false); setFiles([]); }
     const [files, setFiles] = useState([]);
     const [imageURL, setImageURL] = useState(null);
+    const [imageID, setImageID] = useState(null);
 
     const handleSave = () => {
         const addToDatabase = async () => {
@@ -25,7 +26,7 @@ const AddImage = () => {
                     Title: '',
                     Desc: '',
                 };
-                await addDocument('gallery', galleryDoc, 'none');
+                await addDocument('gallery', galleryDoc, imageID);
                 //setImageURL(null);
             } catch (error) {
                 alert(error.message);
@@ -35,10 +36,6 @@ const AddImage = () => {
         //setImageURL(URL.createObjectURL(file));
         addToDatabase();
         setOpen(false); setFiles([]);
-    }
-
-    const setURL = (url) => {
-        setImageURL(url);
     }
 
 
@@ -52,7 +49,7 @@ const AddImage = () => {
                 onClose={handleCancel}
             >
                 <Box>
-                    {files[0] ? <ProgressList files={files} setURL={setURL} /> : <UploadForm setFiles={setFiles} />}
+                    {files[0] ? <ProgressList files={files} setURL={setImageURL} setImageID={setImageID}/> : <UploadForm setFiles={setFiles} />}
 
 
 

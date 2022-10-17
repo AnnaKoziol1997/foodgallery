@@ -6,12 +6,13 @@ import { v4 as uuidv4 } from 'uuid';
 import uploadFileWithProgress from '../files/uploadWithProgress';
 //import addDocument from '../database/addDocument';
 
-const ProgressItem = ({ file }, {setURL}) => {
+const ProgressItem = ({ file, setURL, setImageID}) => {
     const [imageURL, setImageURL] = useState(null);
     //const currentUser = { uid: 'userId' };
     useEffect(() => {
         const uploadImage = async () => {
-            const imageName = uuidv4() + '.' + file.name.split('.').pop();
+            const uID = uuidv4();
+            const imageName = uID + '.' + file.name.split('.').pop();
             try {
                 const url = await uploadFileWithProgress(
                     file,
@@ -20,6 +21,7 @@ const ProgressItem = ({ file }, {setURL}) => {
                     imageName
                 );
                 setURL(url);
+                setImageID(uID);
                 /*const galleryDoc = {
                     imageURL: url,
                     uid: '',
@@ -39,7 +41,7 @@ const ProgressItem = ({ file }, {setURL}) => {
         };
         setImageURL(URL.createObjectURL(file));
         uploadImage();
-    }, [file,setURL]);
+    }, [file,setURL,setImageID]);
     return (
         imageURL && (
             <ImageListItem cols={1} rows={1}>
