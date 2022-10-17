@@ -47,8 +47,14 @@ const AddImage = () => {
                 open={open}
                 onClose={handleCancel}
             >
-                <Box className='Boxy'>
-                    <Box className='ImgBox'>
+                <Box 
+                width={450}
+                height={550}
+
+                >
+                    <Box 
+                    className='ImgBox'
+                    >
                         {files[0] ? <ProgressList files={files} setURL={setImageURL} setImageID={setImageID} /> : <UploadForm setFiles={setFiles} />}
                     </Box>
                     <Box className='TextFields'>
