@@ -92,7 +92,28 @@ img:focus,
 img:focus-visible{
   border: solid 5px #9c7855;
 }
+.Boxy{
+  width: 450px;
+  height: 600px;
+  
+}
+.TextFields{
+   text-align: center;
+}
+.ImgBox{
+  margin-top: 15px;
+  text-align: center;
+}
 
+.NameBox{
+  margin-top: 15px;
+text-align: center;
+}
+
+.DescBox{
+  margin-top: 15px;
+text-align: center;
+}
 
 /* upload form styles */
 

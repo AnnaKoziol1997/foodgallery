@@ -2,10 +2,9 @@ import { useState } from 'react';
 import React from 'react';
 import UploadForm from './UploadForm';
 import ProgressList from './ProgressList';
-import { Box, Fab, Dialog, DialogActions, Button } from '@mui/material';
+import { Box, Fab, Dialog, DialogActions, Button, TextField } from '@mui/material';
 import { Add } from '@mui/icons-material';
 import addDocument from '../database/addDocument';
-
 const AddImage = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => { setOpen(true); }
@@ -48,12 +47,27 @@ const AddImage = () => {
                 open={open}
                 onClose={handleCancel}
             >
-                <Box>
-                    {files[0] ? <ProgressList files={files} setURL={setImageURL} setImageID={setImageID}/> : <UploadForm setFiles={setFiles} />}
-
-
+                <Box className='Boxy'>
+                    <Box className='ImgBox'>
+                        {files[0] ? <ProgressList files={files} setURL={setImageURL} setImageID={setImageID} /> : <UploadForm setFiles={setFiles} />}
+                    </Box>
+                    <Box className='TextFields'>
+                        <Box className='NameBox'>
+                            <TextField id="outlined-basic" label="Name" variant="outlined" />
+                        </Box>
+                        <Box className='DescBox'>
+                            <TextField
+                                id="outlined-multiline-static"
+                                label="Description"
+                                multiline
+                                rows={4}
+                                defaultValue="Default Value"
+                            />
+                        </Box>
+                    </Box>
 
                 </Box>
+
                 <DialogActions>
                     <Button onClick={handleCancel}>Cancel</Button>
                     <Button onClick={handleSave}>Save</Button>
